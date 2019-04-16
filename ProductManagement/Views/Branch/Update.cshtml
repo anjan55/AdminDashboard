@@ -1,0 +1,65 @@
+﻿@model BranchVM
+@{
+    ViewBag.Title = "Branch List";
+}
+
+<!--PAGE CONTENT -->
+
+
+<div class="inner">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header"> @Model.PageTitle</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Branch Information
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form role="form" asp-action="Update" asp-controller="Branch" method="post">
+                                <div class="form-group col-lg-4">
+                                    <label>Branch Name</label>
+                                    <input class="form-control" asp-for="@Model.Branch.BranchName">
+                                    <span class="alert-danger" asp-validation-for="@Model.Branch.BranchName"></span>
+                                    <input class="form-control" type="hidden" asp-for="@Model.Branch.BranchId">
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label>Branch Desc</label>
+                                    <input class="form-control" asp-for="@Model.Branch.BranchDesc">
+                                    
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label>Branch Status</label>
+                                    <select class="form-control" asp-for="Branch.BranchStatus" asp-items="Html.GetEnumSelectList<Status>()"></select>
+                               </div>
+
+                                
+
+
+                                    <div class="form-group col-lg-4">
+                                        <button type="submit" class="btn btn-primary">Submit </button>
+                                        <button type="reset" class="btn btn-warning">Reset </button>
+                                        <a asp-controller="Branch"
+                                           asp-action="Index" class="btn btn-danger">Cancel</a>
+                                    </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<!--END PAGE CONTENT -->
