@@ -10,6 +10,7 @@ using ProductManagement.ViewModels;
 
 namespace ProductManagement.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         
@@ -22,7 +23,6 @@ namespace ProductManagement.Controllers
             _categoryRepo = categoryRepo;
             
         }
-        [Authorize(Roles="Admin")]
         public IActionResult Index()
         {
 
@@ -54,7 +54,6 @@ namespace ProductManagement.Controllers
 
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(Category category)
         {

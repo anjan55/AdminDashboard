@@ -9,5 +9,6 @@ namespace ProductManagement.Interface
     public interface IUserRepo
     {
         User GetUserByUserName(string username, string password);
+        string GetRoleById(int roleId);
     }
 }
